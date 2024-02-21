@@ -1,0 +1,97 @@
+.ui.fixed.menu {
+  height: 10vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.ui.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.maindiv {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mform {
+  margin-top: 12vh;
+}
+.mform h2 {
+  font-weight: 800;
+  font-size: 30px;
+}
+.field {
+  margin-top: 1rem;
+}
+label {
+  padding-top: 1.5rem;
+  font-size: 1.1rem !important;
+}
+.first-input {
+  text-transform: capitalize;
+}
+input {
+  font-size: 1.1rem !important;
+  min-width: 40vw;
+  max-width: 50vw;
+}
+.form button {
+  margin-top: 1rem !important;
+}
+.contactList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.contactList .item {
+  display: flex !important;
+  justify-content: space-between;
+  width: 50%;
+}
+.item {
+  position: relative;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+}
+.item .trash {
+  position: absolute;
+  right: 10px;
+}
+.item i {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.content{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .maindiv {
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: 1rem;
+  }
+  input {
+    min-width: 90vw;
+    margin-inline: 2rem;
+  }
+  .contactList .item {
+    display: flex !important;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .item {
+    position: relative;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+  }
+}
