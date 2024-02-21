@@ -1,18 +1,21 @@
-import userImg from '../assets/Images/user.png'
+/* eslint-disable react/prop-types */
+import userImg from "../assets/Images/user.png";
 
 function ContactCard(props) {
-  const {id,name,email} = props.contact
+  const { id, name, email } = props.contact;
   return (
     <div className="item" key={id}>
-     
       <div className="content">
-      <img className='ui avatar image' src={userImg} alt="" />
+        <img className="ui avatar image" src={userImg} alt="" />
         <div>
-        <div className="header">{name}</div>
-        <div>{email}</div>
+          <div className="header">{name}</div>
+          <div>{email}</div>
         </div>
       </div>
-      <i style={{color:'Red',marginTop:'7px'}} className="trash alternate outline icon"></i>
+      <i
+        style={{ color: "Red", marginTop: "7px" }}
+        className="trash alternate outline icon"
+      ></i>
     </div>
   );
 }
