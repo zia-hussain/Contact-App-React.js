@@ -11,17 +11,7 @@ function AddContact(props) {
       alert("All the fields are mandatory");
       return;
     }
-
-    // const existingContact = props.contacts.find(
-    //   (contact) => contact.name === state.name || contact.email === state.email
-    // );
-
-    // if (existingContact) {
-    //   alert("Contact with the same name or email already exists");
-    //   return;
-    // }
-
-    props.contactappHandler(state);
+    props.addcontactHandler(state);
     setState({ name: "", email: "" });
   };
 

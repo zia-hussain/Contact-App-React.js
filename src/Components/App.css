@@ -68,11 +68,12 @@ input {
   font-size: 1.5rem;
   cursor: pointer;
 }
-.content{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
+
 @media screen and (max-width: 768px) {
   .maindiv {
     align-items: flex-start;
