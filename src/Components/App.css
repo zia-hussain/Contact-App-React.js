@@ -1,5 +1,5 @@
 .ui.fixed.menu {
-  height: 10vh;
+  height: 12vh;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -10,6 +10,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.ui.container > h2 {
+  border-radius: 20px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.397);
+  padding: 5px;
+  padding-inline: 1rem;
+  /* border-bottom: 2px solid rgba(0, 0, 0, 0.397); */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 .maindiv {
   width: 100vw;
@@ -48,17 +57,41 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 5rem !important;
 }
 .contactList .item {
   display: flex !important;
   justify-content: space-between;
   width: 50%;
 }
+.contactList .item:nth-child(1) {
+  background: #000;
+}
+
 .item {
   position: relative;
-  height: 10vh;
+  min-height: 10vh;
+  width: 100%;
   display: flex;
+  gap: 1rem;
+  margin-top: 0rem;
   align-items: center;
+}
+.item .header {
+  font-size: 16px;
+  font-weight: 900;
+  margin-top: 5px;
+  max-width: 100%;
+  display: inline-block;
+  word-wrap: break-word;
+}
+.item .email {
+  font-size: 14px;
+  color: #828282;
+  margin-top: 5px;
+  max-width: 100%;
+  display: inline-block;
+  word-wrap: break-word;
 }
 .item .trash {
   position: absolute;
@@ -72,6 +105,35 @@ input {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.contactList .contact {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+.contact .pageBtn {
+  margin-top: 0.5rem;
+  border-radius: 30px;
+}
+.contact h1 {
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  padding-inline: 10px;
+  margin-left: -10px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 34px;
+}
+.detail{
+  margin-top: 12vh;
+}
+.detail .content{
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 768px) {
@@ -94,5 +156,11 @@ input {
     height: 10vh;
     display: flex;
     align-items: center;
+  }
+  .contactList .contact {
+    width: 100%;
+  }
+  .contactList .contact h1 {
+    width: max-content;
   }
 }
