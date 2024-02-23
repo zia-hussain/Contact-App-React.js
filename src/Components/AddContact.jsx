@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddContact(props) {
+  const navigate = useNavigate();
+  // const history = useHistory();
   const [state, setState] = useState({
     name: "",
     email: "",
@@ -13,6 +16,8 @@ function AddContact(props) {
     }
     props.addcontactHandler(state);
     setState({ name: "", email: "" });
+    // history.push("/");
+    navigate("/");
   };
 
   return (
@@ -41,9 +46,11 @@ function AddContact(props) {
               value={state.email}
             />
           </div>
+          {/* <Link to={""}> */}
           <button type="submit" className="ui button blue">
             Add
           </button>
+          {/* </Link> */}
         </form>
       </div>
     </div>
