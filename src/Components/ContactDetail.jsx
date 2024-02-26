@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import user from "../assets/Images/userimg.jpg";
 
 function ContactDetail() {
@@ -14,6 +15,11 @@ function ContactDetail() {
           <div className="header">{location.state.contact?.name}</div>
           <div className="description">{location.state.contact?.email}</div>
         </div>
+      </div>
+      <div className="backbutton">
+        <Link to={"/"}>
+          <button className="ui blue button center">Back To ContactList</button>
+        </Link>
       </div>
     </div>
   );
