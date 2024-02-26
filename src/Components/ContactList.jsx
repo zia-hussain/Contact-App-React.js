@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import ContactCard from "./ContactCard";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 function ContactList(props) {
   // console.log(props.contacts);
+  const naviagte = useNavigate();
 
   const deleteContactHandler = (id) => {
     props.getContactId(id);
@@ -23,9 +23,12 @@ function ContactList(props) {
     <div className="contactList ui celled list">
       <div className="contact">
         <h1>Contact List</h1>
-        <Link to={"/add"}>
-          <button className="pageBtn  ui button blue">Add Contact</button>
-        </Link>
+        <button
+          className="pageBtn  ui button blue"
+          onClick={() => naviagte("/add")}
+        >
+          Add Contact
+        </button>
       </div>
       {renderContactList}
     </div>

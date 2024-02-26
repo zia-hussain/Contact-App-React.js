@@ -27,7 +27,7 @@
   justify-content: center;
 }
 .mform {
-  margin-top: 12vh;
+  margin-top: 15vh;
 }
 .mform h2 {
   font-weight: 800;
@@ -71,7 +71,7 @@ input {
 .item {
   position: relative;
   min-height: 10vh;
-  width: 100%;
+  width: 50vw;
   display: flex;
   gap: 1rem;
   margin-top: 0rem;
@@ -89,7 +89,9 @@ input {
   font-size: 14px;
   color: #828282;
   margin-top: 5px;
+  flex-basis: 10%;
   max-width: 100%;
+  word-wrap: break-word;
   display: inline-block;
   word-wrap: break-word;
 }
@@ -97,8 +99,9 @@ input {
   position: absolute;
   right: 10px;
 }
+
 .item i {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   cursor: pointer;
 }
 .content {
@@ -140,6 +143,28 @@ input {
   display: flex;
   justify-content: center;
 }
+.item .btns {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background: #000; */
+  width: 25%;
+  gap: 1rem;
+  position: absolute;
+  right: 0;
+  height: 100%;
+}
+.btns > i {
+  position: absolute;
+  right: 70%;
+  top: 45%;
+  transform: translateY(-50%);
+}
+.btns .trash {
+  left: 70%;
+  position: absolute;
+}
 
 @media screen and (max-width: 768px) {
   .maindiv {
@@ -167,5 +192,27 @@ input {
   }
   .contactList .contact h1 {
     width: max-content;
+  }
+
+  .item .btns {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    gap: 1rem;
+    position: absolute;
+    right: 0;
+    height: 100%;
+  }
+  .btns i {
+    position: absolute;
+    left: 0;
+    top: 45%;
+    transform: translateY(-50%);
+  }
+  .btns .trash {
+    left: 70%;
+    position: absolute;
   }
 }

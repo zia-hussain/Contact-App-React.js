@@ -6,19 +6,35 @@ import AddContact from "./AddContact";
 import "./App.css";
 import ContactList from "./ContactList";
 import ContactDetail from "./ContactDetail";
+import api from "../api/contact";
+import EditContact from "./EditContact";
 
 function App() {
-  let LOCAL_STORAGE_KEY = "contacts";
+  const [contacts, setContacts] = useState([]);
 
-  const [contacts, setContacts] = useState(
-    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || []
-  );
-
-  const addContactHandler = (contact) => {
-    setContacts([...contacts, { id: uuidv4(), ...contact }]);
+  // Retrieve Contacts
+  const retrieveContacts = async () => {
+    try {
+      const response = await api.get("/contacts");
+      return response.data;
+    } catch (error) {
+      console.error("Error retrieving contacts:", error);
+      return [];
+    }
   };
 
-  const removeContactHandler = (id) => {
+  const addContactHandler = async (contact) => {
+    const request = {
+      id: uuidv4(),
+      ...contact,
+    };
+
+    const response = await api.post("/contacts", request);
+    setContacts([...contacts, response.data]);
+  };
+
+  const removeContactHandler = async (id) => {
+    await api.delete(`/contacts/${id}`);
     const newContactList = contacts.filter((contact) => {
       return contact.id !== id;
     });
@@ -26,9 +42,14 @@ function App() {
     setContacts(newContactList);
   };
 
+  const getAllContacts = async () => {
+    const allContacts = await retrieveContacts();
+    setContacts(allContacts);
+  };
+
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-  }, [contacts]);
+    getAllContacts();
+  }, []);
 
   return (
     <div className="ui container">
@@ -49,16 +70,14 @@ function App() {
             path="/add"
             element={<AddContact addcontactHandler={addContactHandler} />}
           />
+          <Route path="/contact/:id" element={<ContactDetail />} />
 
-          <Route 
-          path="/contact/:id"
-          Component={ContactDetail}
+          <Route
+            path="/edit"
+            element={<EditContact getAllContacts={getAllContacts} />}
           />
         </Routes>
       </Router>
-
-      {/* <AddContact addcontactHandler={addcontactHandler} />
-      <ContactList contacts={contacts} getContactId={removeContactHandler} /> */}
     </div>
   );
 }
