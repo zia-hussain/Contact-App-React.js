@@ -9,7 +9,7 @@ import ContactDetail from "./ContactDetail";
 import api from "../api/contact";
 import EditContact from "./EditContact";
 import contact from "../api/contact";
-
+import { contactsList } from "../Strings/Strings";
 function App() {
   const [contacts, setContacts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -79,7 +79,7 @@ function App() {
             exact
             element={
               <ContactList
-                contacts={searchTerm.length < 1 ? contacts : searchResult}
+                contacts={searchTerm.length < 1 ? contactsList : searchResult}
                 getContactId={removeContactHandler}
                 term={searchTerm}
                 searchKeyword={searchHandler}
