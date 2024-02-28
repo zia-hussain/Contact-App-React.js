@@ -68,6 +68,8 @@ input {
   background: #000;
 }
 
+/* title and btn */
+
 .item {
   position: relative;
   min-height: 10vh;
@@ -115,8 +117,17 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
   padding-left: 10px;
 }
+.btnntitle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+
 .contact .pageBtn {
   margin-top: 0.5rem;
   border-radius: 30px;
@@ -131,6 +142,16 @@ input {
   margin-bottom: 1.5rem;
   font-size: 34px;
 }
+
+.fullinput {
+  margin-bottom: 15px;
+}
+.fullinput i {
+  color: #828282;
+  font-size: 20px;
+  height: 5rem;
+}
+
 .detail {
   margin-top: 12vh;
 }

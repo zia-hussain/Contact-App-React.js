@@ -8,9 +8,12 @@ import ContactList from "./ContactList";
 import ContactDetail from "./ContactDetail";
 import api from "../api/contact";
 import EditContact from "./EditContact";
+import contact from "../api/contact";
 
 function App() {
   const [contacts, setContacts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
 
   // Retrieve Contacts
   const retrieveContacts = async () => {
@@ -42,6 +45,21 @@ function App() {
     setContacts(newContactList);
   };
 
+  const searchHandler = (searchTerm) => {
+    setSearchTerm(searchTerm);
+    if (searchTerm !== "") {
+      const newContact = contacts.filter((contact) => {
+        return Object.values(contact)
+          .join(" ")
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+      });
+      setSearchResult(newContact);
+    } else {
+      setSearchResult(contact);
+    }
+  };
+
   const getAllContacts = async () => {
     const allContacts = await retrieveContacts();
     setContacts(allContacts);
@@ -61,8 +79,10 @@ function App() {
             exact
             element={
               <ContactList
-                contacts={contacts}
+                contacts={searchTerm.length < 1 ? contacts : searchResult}
                 getContactId={removeContactHandler}
+                term={searchTerm}
+                searchKeyword={searchHandler}
               />
             }
           />
