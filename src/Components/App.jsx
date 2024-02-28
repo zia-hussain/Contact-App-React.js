@@ -79,7 +79,7 @@ function App() {
             exact
             element={
               <ContactList
-                contacts={searchTerm.length < 1 ? contactsList : searchResult}
+                contacts={searchTerm.length < 1 ? contacts : searchResult}
                 getContactId={removeContactHandler}
                 term={searchTerm}
                 searchKeyword={searchHandler}
