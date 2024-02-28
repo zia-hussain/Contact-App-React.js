@@ -1,8 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
   return (
-    <div className="header ui fixed menu">
+    <div
+      style={{ cursor: "pointer" }}
+      onClick={() => navigate("/")}
+      className="header ui fixed menu"
+    >
       <div className="ui container">
         <h2>Contact Manager</h2>
       </div>
